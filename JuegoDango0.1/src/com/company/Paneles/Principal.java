@@ -33,7 +33,7 @@ public class Principal extends JFrame implements ActionListener {
 
         contenedor.add(panel0);
         panel0.setVisible(true);
-        panel2.setVisible(false);
+        panel1.setVisible(false);
         panel3.setVisible(false);
 
         deshabilitarBotones();
@@ -68,7 +68,7 @@ public class Principal extends JFrame implements ActionListener {
 
         if (suceso.equals(btn_anterior)){
             panel0.setVisible(true);
-            panel2.setVisible(false);
+            panel1.setVisible(false);
             panel3.setVisible(false);
 
             contenedor.add(panel0);
@@ -77,16 +77,16 @@ public class Principal extends JFrame implements ActionListener {
 
         }else if (suceso.equals(btn_siguiente)){
             panel0.setVisible(false);
-            panel2.setVisible(true);
+            panel1.setVisible(true);
             panel3.setVisible(false);
 
-            contenedor.add(panel2);
+            contenedor.add(panel1);
             contenedor.validate();
             deshabilitarBotones();
 
         }else if (suceso.equals(btn_siguiente)){
             panel0.setVisible(false);
-            panel2.setVisible(false);
+            panel1.setVisible(false);
             panel3.setVisible(true);
 
             contenedor.add(panel3);
@@ -98,7 +98,7 @@ public class Principal extends JFrame implements ActionListener {
         if (panel0.isVisible()){
             btn_anterior.setEnabled(false);
             btn_siguiente.setEnabled(true);
-        }else if (panel2.isVisible()){
+        }else if (panel1.isVisible()){
             btn_anterior.setEnabled(true);
             btn_siguiente.setEnabled(true);
             }else if (panel3.isVisible()){
