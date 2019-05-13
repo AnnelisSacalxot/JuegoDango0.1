@@ -26,6 +26,7 @@ public class Principal extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+
         Container content = getContentPane();
         p = new Panel0();
         content.add(p);
@@ -41,6 +42,7 @@ public class Principal extends JFrame implements ActionListener {
         btn_anterior.addActionListener(this);
         btn_siguiente.addActionListener(this);
         btn_salir.addActionListener(this);
+
 
 
         /**

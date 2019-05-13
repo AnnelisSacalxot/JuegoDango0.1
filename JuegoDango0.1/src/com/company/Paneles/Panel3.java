@@ -6,12 +6,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Panel3 extends JFrame{
+public class Panel3 extends JPanel{
     private JPanel panel33;
 
     Cuadro[][] matrizCuadros;
     JPanel panelIngreso, panelVer, panelBotones;
-    JTextField fieldDimension;
+    JTextField fieldEscenario;
     JLabel labelInstrucciones, labelEvaluar;
     JButton btnAgregar, btnTienda, btnTanque, btnAvion;
 
@@ -23,12 +23,13 @@ public class Panel3 extends JFrame{
         this.setTitle(nombre);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);*/
+            super();
 
         torre = true;
 
         labelInstrucciones = new JLabel("Agregue la dimension");
         labelEvaluar = new JLabel("0");
-        fieldDimension = new JTextField(10);
+        fieldEscenario = new JTextField(10);
         btnAgregar = new JButton("Agregar");
         btnTienda = new JButton("Tienda");
         btnAvion = new JButton();
@@ -48,7 +49,7 @@ public class Panel3 extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnAgregar.setEnabled(false);
-                fieldDimension.setEnabled(false);
+                fieldEscenario.setEnabled(false);
                 addCuadro();
             }
         });
@@ -58,9 +59,9 @@ public class Panel3 extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 delCuadro();
                 btnAgregar.setEnabled(true);
-                fieldDimension.setEnabled(true);
-                fieldDimension.setText("");
-                fieldDimension.requestFocus();
+                fieldEscenario.setEnabled(true);
+                fieldEscenario.setText("");
+                fieldEscenario.requestFocus();
             }
         });
 
@@ -99,18 +100,16 @@ public class Panel3 extends JFrame{
 
         // todo al JFrame
         panelIngreso.add(labelInstrucciones);
-        panelIngreso.add(fieldDimension);
+        panelIngreso.add(fieldEscenario);
         panelIngreso.add(btnAgregar);
         panelIngreso.add(btnTanque);
         panelBotones.add(btnAvion);
         panelBotones.add(btnTanque);
         panelIngreso.add(labelEvaluar);
-        this.getContentPane().add(BorderLayout.NORTH, panelIngreso);
-        this.getContentPane().add(BorderLayout.CENTER, panelBotones);
-        this.getContentPane().add(BorderLayout.SOUTH, panelBotones);
 
 
-        setVisible(true);
+
+        setVisible(false);
     }
 
     public Panel3() {
@@ -119,8 +118,8 @@ public class Panel3 extends JFrame{
 
 
     public void delCuadro() {
-        for (int i = 0; i < Integer.parseInt(fieldDimension.getText()); i++) {
-            for (int j = 0; j < Integer.parseInt(fieldDimension.getText()); j++) {
+        for (int i = 0; i < Integer.parseInt(fieldEscenario.getText()); i++) {
+            for (int j = 0; j < Integer.parseInt(fieldEscenario.getText()); j++) {
                 matrizCuadros[i][j] = null;
             }
             panelBotones.removeAll();
@@ -129,7 +128,7 @@ public class Panel3 extends JFrame{
     }
 
     public void addCuadro() {
-        int tmp = Integer.parseInt(fieldDimension.getText());
+        int tmp = Integer.parseInt(fieldEscenario.getText());
 
         this.matrizCuadros = new Cuadro[tmp][tmp];
         //Greed Layout para botones

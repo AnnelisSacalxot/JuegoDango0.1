@@ -3,13 +3,20 @@ package com.company.Paneles;
 import javax.swing.*;
 import java.awt.*;
 
-public class Panel0 extends JFrame {
+public class Panel0 extends JPanel {
 
     private Image fondo;
     private JPanel panel0;
-    private JButton button1;
+
+    public Panel0(){
+        super();
+        setVisible(true);
+
+
+    }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
+
 }

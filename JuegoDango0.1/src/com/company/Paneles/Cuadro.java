@@ -90,7 +90,7 @@ public class Cuadro extends JButton {
 
     private void gameover(){
         this.setBackground(Color.yellow);
-        JDialog d = new JDialog(ventana, "Perdio ");
+        JDialog d = new JDialog();
 
         // create a label
         JLabel l = new JLabel("en la posición x "+posx+" y "+posy);
