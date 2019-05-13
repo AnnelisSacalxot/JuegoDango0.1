@@ -5,6 +5,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class Panel3 extends JPanel{
     private JPanel panel33;
@@ -15,17 +16,15 @@ public class Panel3 extends JPanel{
     JLabel labelInstrucciones, labelEvaluar;
     JButton btnAgregar, btnTienda, btnTanque, btnAvion;
 
-    boolean torre;
+    boolean Tanque;
 
 
     public Panel3(String nombre) {
-        /*super(nombre);
-        this.setTitle(nombre);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 800);*/
-            super();
+        super();
+        delCuadro();
+        matrizCuadros = new Cuadro[][];
 
-        torre = true;
+        Tanque = true;
 
         labelInstrucciones = new JLabel("Agregue la dimension");
         labelEvaluar = new JLabel("0");
@@ -69,16 +68,18 @@ public class Panel3 extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //botones.setEstado(true);
-                torre = true;
+                Tanque = true;
             }
         });
 
 
         btnAvion.addActionListener(new ActionListener() {
+            private Object Avion;
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 //botones.setEstado(false);
-                torre = false;
+                Avion = true;
             }
         });
 
@@ -111,6 +112,67 @@ public class Panel3 extends JPanel{
 
         setVisible(false);
     }
+
+    public void moverVehiculo(Cuadro cuadro, Cuadro cuadro1){
+        int x,y,d;
+        Scanner n = new Scanner(System.in);
+        System.out.println("Posición y:");
+        x= n.nextInt();
+        System.out.println("Posición x:");
+        y=n.nextInt();
+        System.out.println("0 izquierda, 1 derecha:");
+        d = n.nextInt();
+
+        if (movimientoValido(x,y,1)&& movimientoValido(x,y,0)){
+            if (movimientoValido(matrizCuadros[x][y],matrizCuadros[(x+1)][(y+1)]))
+                moverVehiculo(matrizCuadros[x][y],matrizCuadros[(x+1)][(y+1)]);
+            else
+                System.out.println("¡Invalido!");
+        }
+        else
+            System.out.println("Fuera de rango");
+
+
+    }
+
+    public void moverTanque(Cuadro co, Cuadro cd){
+        cd.setTanque(co.getTanque());
+        co.setTanque(null);
+
+    }
+    public void moverAvion(Cuadro co, Cuadro cd){
+        cd.setAvion(co.getAvion());
+        co.setAvion(null);
+
+    }
+
+    public boolean movimientoValido(Cuadro co, Cuadro cd){
+        if (cd.isEmpty() && !co.isEmpty())
+            return true;
+        return false;
+    }
+
+
+    public boolean movimientoValido(int x, int y, int m){
+        x+=m;
+        y+=m;
+        if ((x>=0) && (x<= 7) && (y>=0 ) && (y<=7))
+            return true;
+        return false;
+    }
+
+
+    public void jugar(){
+        addCuadro();
+        moverVehiculo(matrizCuadros[x][y], matrizCuadros[(x + 1)][(y + 1)]);
+        addCuadro();
+        moverVehiculo(matrizCuadros[x][y], matrizCuadros[(x + 1)][(y + 1)]);
+        addCuadro();
+
+
+
+    }
+
 
     public Panel3() {
 
