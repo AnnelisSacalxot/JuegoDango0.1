@@ -10,10 +10,10 @@ public class Panel3 extends JFrame{
     private JPanel panel33;
 
     Cuadro[][] matrizCuadros;
-    JPanel panelInformacion, panelBotones, panelPiezas;
+    JPanel panelIngreso, panelVer, panelBotones;
     JTextField fieldDimension;
     JLabel labelInstrucciones, labelEvaluar;
-    JButton btnAgregar, btnLimpiar, btnTorre, btnAlfil;
+    JButton btnAgregar, btnTienda, btnTanque, btnAvion;
 
     boolean torre;
 
@@ -30,16 +30,16 @@ public class Panel3 extends JFrame{
         labelEvaluar = new JLabel("0");
         fieldDimension = new JTextField(10);
         btnAgregar = new JButton("Agregar");
-        btnLimpiar = new JButton("Limpiar");
-        btnAlfil = new JButton();
-        btnTorre = new JButton();
-        panelInformacion = new JPanel();
+        btnTienda = new JButton("Tienda");
+        btnAvion = new JButton();
+        btnTanque = new JButton();
+        panelIngreso = new JPanel();
+        panelVer = new JPanel();
         panelBotones = new JPanel();
-        panelPiezas = new JPanel();
 
         //Agregar imagenes de los botones selccionadores
-        btnTorre.setIcon(new ImageIcon("src/Imagenes/Torre.png"));
-        btnAlfil.setIcon(new ImageIcon("src/Imagenes/alfil.png"));
+        btnTanque.setIcon(new ImageIcon("src/Imagenes/ars.jpg"));
+        btnAvion.setIcon(new ImageIcon("src/Imagenes/enal.jpg"));
 
         /**
          * Este metodo me sirve para dar accion a los botones
@@ -53,7 +53,7 @@ public class Panel3 extends JFrame{
             }
         });
 
-        btnLimpiar.addActionListener(new ActionListener() {
+        btnTienda.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 delCuadro();
@@ -64,7 +64,7 @@ public class Panel3 extends JFrame{
             }
         });
 
-        btnTorre.addActionListener(new ActionListener() {
+        btnTanque.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //botones.setEstado(true);
@@ -73,7 +73,7 @@ public class Panel3 extends JFrame{
         });
 
 
-        btnAlfil.addActionListener(new ActionListener() {
+        btnAvion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //botones.setEstado(false);
@@ -85,7 +85,7 @@ public class Panel3 extends JFrame{
         TitledBorder bordePanelInformacion = new TitledBorder("Ingreso de datos");
         bordePanelInformacion.setTitleJustification(TitledBorder.CENTER);
         bordePanelInformacion.setTitlePosition(TitledBorder.TOP);
-        panelInformacion.setBorder(bordePanelInformacion);
+        panelIngreso.setBorder(bordePanelInformacion);
 
         TitledBorder bordePanelBotones = new TitledBorder("Tablero de juego");
         bordePanelInformacion.setTitleJustification(TitledBorder.CENTER);
@@ -95,19 +95,19 @@ public class Panel3 extends JFrame{
         TitledBorder bordePanelPiezas = new TitledBorder("Elija una para poner en el tablero");
         bordePanelPiezas.setTitleJustification(TitledBorder.CENTER);
         bordePanelPiezas.setTitlePosition(TitledBorder.TOP);
-        panelPiezas.setBorder(bordePanelPiezas);
+        panelBotones.setBorder(bordePanelPiezas);
 
-        //Agrego todo al JFrame
-        panelInformacion.add(labelInstrucciones);
-        panelInformacion.add(fieldDimension);
-        panelInformacion.add(btnAgregar);
-        panelInformacion.add(btnLimpiar);
-        panelPiezas.add(btnAlfil);
-        panelPiezas.add(btnTorre);
-        panelInformacion.add(labelEvaluar);
-        this.getContentPane().add(BorderLayout.NORTH, panelInformacion);
+        // todo al JFrame
+        panelIngreso.add(labelInstrucciones);
+        panelIngreso.add(fieldDimension);
+        panelIngreso.add(btnAgregar);
+        panelIngreso.add(btnTanque);
+        panelBotones.add(btnAvion);
+        panelBotones.add(btnTanque);
+        panelIngreso.add(labelEvaluar);
+        this.getContentPane().add(BorderLayout.NORTH, panelIngreso);
         this.getContentPane().add(BorderLayout.CENTER, panelBotones);
-        this.getContentPane().add(BorderLayout.SOUTH, panelPiezas);
+        this.getContentPane().add(BorderLayout.SOUTH, panelBotones);
 
 
         setVisible(true);

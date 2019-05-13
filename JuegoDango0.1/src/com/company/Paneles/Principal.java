@@ -43,6 +43,11 @@ public class Principal extends JFrame implements ActionListener {
         btn_salir.addActionListener(this);
 
 
+        /**
+         * Este metodo me sirve para salir y que el programa en definitiva ya no se ejecute
+         */
+
+
         btn_salir.addActionListener(
                 new ActionListener() {
                     @Override
@@ -60,6 +65,10 @@ public class Principal extends JFrame implements ActionListener {
         System.exit(0);
     }
 
+
+    /**
+     * Este metodo de accion para los botones esten activos o no
+     */
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {

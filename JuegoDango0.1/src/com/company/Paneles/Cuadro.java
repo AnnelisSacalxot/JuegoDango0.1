@@ -45,12 +45,12 @@ public class Cuadro extends JButton {
             situacion = true;
             if (ventana.torre) {
                 System.out.println("ventana.hilotorre(x,y)");
-                this.setIcon(new ImageIcon("src/Imagenes/Torre.png"));
+                this.setIcon(new ImageIcon("src/Imagenes/ars.png"));
                 Hilo tmp = new Hilo(posx, posy, ventana,ventana.matrizCuadros,true);
                 tmp.start();
 
             } else {
-                this.setIcon(new ImageIcon("src/Imagenes/alfil.png"));
+                this.setIcon(new ImageIcon("src/Imagenes/enal.jpg"));
 
                 Hilo tmp = new Hilo(posx, posy, ventana,ventana.matrizCuadros,false);
                 tmp.start();

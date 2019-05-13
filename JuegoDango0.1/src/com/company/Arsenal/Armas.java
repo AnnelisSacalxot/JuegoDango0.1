@@ -8,6 +8,11 @@ package com.company.Arsenal;
 //return: valor de vuelto
 
 
+/**
+ * Atributos del arsenal que tendra a dispocision el usuario
+ */
+
+
 public class Armas { int Disparos; String Municiones; int Alcanze; int Daño; float VelocidadDeRecarga;public Armas(){
 
 }

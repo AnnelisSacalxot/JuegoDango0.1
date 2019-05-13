@@ -22,9 +22,9 @@ public class Hilo extends Thread{
 
         if (torre)
             //recorridoTorre();
-            recorridoTR(1,ventana.matrizCuadros.length);
+            recorridoTanque(1,ventana.matrizCuadros.length);
         else
-            recorridoAR(1,ventana.matrizCuadros.length);
+            recorridoAVION(1,ventana.matrizCuadros.length);
         //recorridoAlfil();
 
         //recorridoTorre();
@@ -33,7 +33,7 @@ public class Hilo extends Thread{
 
     }
 
-    public void recorridoTR(int contador, int size){
+    public void recorridoTANQUE(int contador, int size){
         int tm =0;
         System.out.println("Contador: "+contador);
 
@@ -65,7 +65,7 @@ public class Hilo extends Thread{
         }
 
         if (tm != 4)
-            recorridoTR(contador+1,size);
+            recorridoTANQUE(contador+1,size);
         else
             return;
 
@@ -73,7 +73,7 @@ public class Hilo extends Thread{
     }
 
 
-    public void recorridoAR(int contador, int size){
+    public void recorridoAVION(int contador, int size){
         int tm =0;
         System.out.println("Contador A: "+contador);
 
@@ -105,14 +105,14 @@ public class Hilo extends Thread{
         }
 
         if (tm != 4)
-            recorridoAR(contador+1,size);
+            recorridoAVION(contador+1,size);
         else
             return;
 
 
     }
 
-    public void recorridoTorre() {
+    public void recorridoTanque(int i, int length) {
         int contador = 1;
         int size = ventana.matrizCuadros.length;
         int tm =0;
@@ -151,7 +151,7 @@ public class Hilo extends Thread{
         }
     }
 
-    public void recorridoAlfil(){
+    public void recorridoAvion(){
         int contador = 1;
         int size = ventana.matrizCuadros.length;
         int tm =0;
